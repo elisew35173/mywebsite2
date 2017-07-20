@@ -7,6 +7,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 </head>
 <body>
 <!--NavBar Code-->
@@ -97,5 +103,37 @@
 	</div>
 <!--End Lists Code-->
 
-
+<!--Maps Code-->
+	<div class="row">
+	<div class = "col-sm-12">
+	<h3>My Places</h3>
+	<div id="map"></div>
+		<script>
+		function initMap() {
+			var homecoord = {lat: 41.832977, lng: -87.849429};
+			var schoolcoord = {lat: 41.828420, lng: -87.830133};
+			var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 14,
+			center: homecoord
+        });
+        var myhome = new google.maps.Marker({
+		position: homecoord,
+		map: map,
+		title: "Home",
+        });
+		var myschool = new google.maps.Marker({
+		position: schoolcoord,
+		map: map,
+		title: "School",
+        });
+      }
+		</script>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDODVY6ZstU1s-nBszuqa3Nc4bJV0FsCmE&callback=initMap">
+		</script>
+	</div>
+	</div>
+<!--End Map Code-->
+</div>
+</body>
 </html>
